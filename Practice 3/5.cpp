@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Функция для перевода десятичного числа в двоичное
 string decToBin(int num, string bin = "")
 {
     if (num == 0)
@@ -19,6 +20,7 @@ string decToBin(int num, string bin = "")
 
 int main()
 {
+    // Тестируем написанную функцию
     int n;
     cout << "Введите число для перевода в двоичную систему счисления: ";
     cin >> n;

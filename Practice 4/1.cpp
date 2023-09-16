@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int Myroot(double, double, double, double&, double&);
+// Прототип функции myRoot
+int myRoot(double, double, double, double&, double&);
 
 int main()
 {
@@ -11,7 +12,8 @@ int main()
     cout << "Введите коэффициенты a, b, c через пробел: ";
     cin >> a >> b >> c;
 
-    int result = Myroot(a, b, c, x1, x2);
+    // Функция myRoot не возвращает значения x1 и x2, однако, использовав ссылки, значения данных переменных изменились
+    int result = myRoot(a, b, c, x1, x2);
     switch (result)
     {
     case -1:
@@ -28,7 +30,9 @@ int main()
     return 0;
 }
 
-int Myroot(double a, double b, double c, double &x1, double &x2)
+// Функция для рассчёта корней квадратного уравнения, которая возвращает количество корней уравнения
+// Также эта функция меняет значения x1, x2 по ссылкам
+int myRoot(double a, double b, double c, double &x1, double &x2)
 {
     double D = pow(b, 2) - 4 * a * c;
     x1 = (-b + pow(D, 1.0 / 2)) / 2 / a;

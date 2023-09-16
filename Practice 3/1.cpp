@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Функция, которая оставит в строке только цифры
 string onlyDigitString(string str)
 {
     string cleanString = "";
@@ -16,6 +17,7 @@ string onlyDigitString(string str)
     return cleanString;
 }
 
+// Функция, для проверки корректности СНИЛС (условие из практической работы 2, задание 2)
 bool checkSnils(string snils)
 {
     string cleanSnils = onlyDigitString(snils);
@@ -79,6 +81,7 @@ int main()
     cout << "Введите свой СНИЛС: ";
     cin >> snils;
 
+    // Используем ранее написанную функцию для проверки корректности СНИЛС
     if (checkSnils(snils))
     {
         cout << "Поздравляю! Вы ввели корректный СНИЛС" << endl;
