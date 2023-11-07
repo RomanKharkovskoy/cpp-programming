@@ -2,156 +2,168 @@
 
 using namespace std;
 
-int sumMas(int n, int mas[])
-{
-    int s = 0;
-    for (int i = 0; i < n; i++)
-    {
-        s += mas[i];
-    }
-
-    return s;
-}
-
-double meanMas(int n, int mas[])
-{
-    return sumMas(n, mas) / n;
-}
-
-int sumNegative(int n, int mas[])
-{
-    int s = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (mas[i] < 0)
-        {
-            s += mas[i];
-        }
-    }
-
-    return s;
-}
-
-int sumPositive(int n, int mas[])
-{
-    int s = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (mas[i] > 0)
-        {
-            s += mas[i];
-        }
-    }
-
-    return s;
-}
-
-int sumOdd(int n, int mas[])
-{
-    int s = 0;
-    for (int i = 1; i < n; i += 2)
-    {
-        s += mas[i];
-    }
-
-    return s;
-}
-
-int sumEven(int n, int mas[])
-{
-    int s = 0;
-    for (int i = 0; i < n; i += 2)
-    {
-        s += mas[i];
-    }
-
-    return s;
-}
-
-int minIndex(int n, int mas[])
-{
-    int index = 0;
-    int minimal = mas[index];
-    for (int i = 1; i < n; i++)
-    {
-        if (mas[i] < minimal)
-        {
-            minimal = mas[i];
-            index = i;
-        }
-    } 
-    
-    return index;
-}
-
-int maxIndex(int n, int mas[])
-{
-    int index = 0;
-    int maximum = mas[index];
-    for (int i = 1; i < n; i++)
-    {
-        if (mas[i] > maximum)
-        {
-            maximum = mas[i];
-            index = i;
-        }
-    } 
-    
-    return index;
-}
-
-int multBetweenMinMax(int n, int mas[])
-{
-    int mult = 1;
-    int minI = minIndex(n, mas);
-    int maxI = maxIndex(n, mas);
-
-    for (int i = minI; i < maxI; ++i)
-    {
-        mult *= mas[i];
-    }
-    return mult;
-}
-
-void sort(int n, int mas[])
-{
-    int min = 0, buf = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-        min = i;
-        for (int j = i; j < n; ++j)
-        {
-            min = (mas[j] < mas[min]) ? j : min;
-        }
-        if (i != min)
-        {
-            buf = mas[i];
-            mas[i] = mas[min];
-            mas[min] = buf;
-
-        }
-    }
-}
+double Sum(double[], int);
+double Mean(double[], int);
+double sumNegative(double[], int);
+double sumPositive(double[], int);
+double sumOdd(double[], int);
+double sumEven(double[], int);
+int minIndex(double[], int);
+int maxIndex(double[], int);
+double mulMinMax(double[], int);
+void sortArray(double[], int);
 
 int main()
 {
-    int arr[] = {64, 25, 12, 22, 11};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    const int size = 10;
+    double arr[size];
+    cout << arr;
+    for (int i = 0; i < size; i++)
+    {
+        cout << "nums[" << i << "] = ";
+        cin >> arr[i];
+    }
+    cout << "Sum = " << Sum(arr, size) << endl;
+    cout << "Mean = " << Mean(arr, size) << endl;
+    cout << "Sum negative = " << sumNegative(arr, size) << endl;
+    cout << "Sum positive = " << sumPositive(arr, size) << endl;
+    cout << "Sum odd = " << sumOdd(arr, size) << endl;
+    cout << "Sum even = " << sumEven(arr, size) << endl;
+    cout << "Min index = " << minIndex(arr, size) << endl;
+    cout << "Max index = " << maxIndex(arr, size) << endl;
+    cout << "Mul between min and max index = " << mulMinMax(arr, size) << endl;
 
-    cout << "Исходный массив: ";
-    for (int i = 0; i < n; ++i) {
+    sortArray(arr, size);
+    for (int i = 0; i < size; i++)
+    {
         cout << arr[i] << " ";
     }
-    cout << endl;
-
-    sort(n, arr);
-
-    cout << "Отсортированный массив: ";
-    for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-
     return 0;
+}
+
+double Sum(double nums[], int size)
+{
+    double s = 0;
+    for (int i = 0; i < size; i++)
+    {
+       s += nums[i]; 
+    }
+    return s;
+}
+
+double Mean(double nums[], int size)
+{
+    double s = Sum(nums, size);
+    return s / size;
+}
+
+double sumNegative(double nums[], int size)
+{
+    double s = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (nums[i] < 0)
+        {
+            s += nums[i];
+        }
+    }
+    return s;
+}
+
+double sumPositive(double nums[], int size)
+{
+    double s = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (nums[i] > 0)
+        {
+            s += nums[i];
+        }
+    }
+    return s;
+}
+
+double sumOdd(double nums[], int size)
+{
+    double s = 0;
+    for (int i = 1; i < size; i += 2)
+    {
+       s += nums[i]; 
+    }
+    return s;
+}
+
+double sumEven(double nums[], int size)
+{
+    double s = 0;
+    for (int i = 0; i < size; i += 2)
+    {
+       s += nums[i]; 
+    }
+    return s;
+}
+
+int minIndex(double nums[], int size)
+{
+    int ind = 0;
+    double minel = nums[ind];
+    for (int i = 1; i < size; i++)
+    {
+        if (nums[i] < minel)
+        {
+            minel = nums[i];
+            ind = i;
+        }
+    }
+    return ind;
+}
+
+int maxIndex(double nums[], int size)
+{
+    int ind = 0;
+    double maxel = nums[ind];
+    for (int i = 1; i < size; i++)
+    {
+        if (nums[i] > maxel)
+        {
+            maxel = nums[i];
+            ind = i;
+        }
+    }
+    return ind;
+}
+
+double mulMinMax(double nums[], int size)
+{
+    double mul = 1;
+    int minind = minIndex(nums, size);
+    int maxind = maxIndex(nums, size);
+    
+    if (minind > maxind)
+    {
+        swap(minind, maxind);
+    }
+
+    if (maxind - minind < 3)
+    {
+        return 0;
+    }
+
+    for (int i = minind; i < maxind; i++)
+    {
+        mul *= nums[i];
+    }
+    return mul;
+}
+
+void sortArray(double nums[], int size) {
+    for (int i = 0; i < size; i++) {
+        int min = i;
+
+        for (int j = i + 1; j < size; j++) {
+            min = (nums[j] < nums[min]) ? j : min;
+        }
+
+        swap(nums[i], nums[min]);
+    }
 }
