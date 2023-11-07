@@ -6,10 +6,6 @@ using namespace std;
 // Функция для перевода десятичного числа в двоичное
 string decToBin(int num, string bin = "")
 {
-    if (num == 0)
-    {
-        return "0";
-    }
     if (num == 1)
     {
         return "1";
