@@ -1,4 +1,4 @@
-#include "dot.h"
+#include "dot.hpp"
 #include <cmath>
 
 Dot::Dot()

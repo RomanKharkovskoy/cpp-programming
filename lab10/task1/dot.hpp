@@ -13,4 +13,4 @@ public:
     double distanceTo(const Dot& point);
 };
 
-#endif 
+#endif

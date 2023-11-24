@@ -1,7 +1,7 @@
 #ifndef AGGREGATION_TRIANGLE_H
 #define AGGREGATION_TRIANGLE_H
 
-#include "dot.h"
+#include "dot.hpp"
 
 class AggregationTriangle
 {
@@ -18,4 +18,4 @@ public:
     double calculateArea();
 };
 
-#endif // AGGREGATION_TRIANGLE_H
+#endif

@@ -1,4 +1,4 @@
-#include "aggregation_triangle.h"
+#include "aggregation_triangle.hpp"
 #include <iostream>
 #include "math.h"
 
@@ -16,9 +16,9 @@ AggregationTriangle::~AggregationTriangle()
 
 void AggregationTriangle::printSideLengths()
 {
-    std::cout << "Side 1: " << point1->distanceTo(*point2) << std::endl;
-    std::cout << "Side 2: " << point2->distanceTo(*point3) << std::endl;
-    std::cout << "Side 3: " << point3->distanceTo(*point1) << std::endl;
+    std::cout << "Сторона 1: " << point1->distanceTo(*point2) << std::endl;
+    std::cout << "Сторона 2: " << point2->distanceTo(*point3) << std::endl;
+    std::cout << "Сторона 3: " << point3->distanceTo(*point1) << std::endl;
 }
 
 double AggregationTriangle::calculatePerimeter()
@@ -29,7 +29,6 @@ double AggregationTriangle::calculatePerimeter()
 
 double AggregationTriangle::calculateArea()
 {
-    // Формула Герона
     double a = point1->distanceTo(*point2);
     double b = point2->distanceTo(*point3);
     double c = point3->distanceTo(*point1);

@@ -1,7 +1,7 @@
 #include <iostream>
-#include "dot.h"
-#include "composition_triangle.h"
-#include "aggregation_triangle.h"
+#include "dot.hpp"
+#include "composition_triangle.hpp"
+#include "aggregation_triangle.hpp"
 
 int main() {
     // Создание точек
@@ -9,24 +9,19 @@ int main() {
     Dot pointB(4, 0);
     Dot pointC(0, 3);
 
-    // Использование композиции
     CompositionTriangle compTriangle(pointA, pointB, pointC);
-    std::cout << "Composition Triangle:" << std::endl;
+    std::cout << "Треугольник с композицией:" << std::endl;
     compTriangle.printSideLengths();
-    std::cout << "Perimeter: " << compTriangle.calculatePerimeter() << std::endl;
-    std::cout << "Area: " << compTriangle.calculateArea() << std::endl;
+    std::cout << "Периметр: " << compTriangle.calculatePerimeter() << std::endl;
+    std::cout << "Площадь: " << compTriangle.calculateArea() << std::endl;
 
     std::cout << std::endl;
 
-    // Использование агрегации
     AggregationTriangle* aggTriangle = new AggregationTriangle(&pointA, &pointB, &pointC);
-    std::cout << "Aggregation Triangle:" << std::endl;
+    std::cout << "Треугольник с агрегацией:" << std::endl;
     aggTriangle->printSideLengths();
-    std::cout << "Perimeter: " << aggTriangle->calculatePerimeter() << std::endl;
-    std::cout << "Area: " << aggTriangle->calculateArea() << std::endl;
-
-    // Освобождение памяти, выделенной для объекта AggregationTriangle
-    delete aggTriangle;
+    std::cout << "Периметр: " << aggTriangle->calculatePerimeter() << std::endl;
+    std::cout << "Площадь: " << aggTriangle->calculateArea() << std::endl;
 
     return 0;
 }

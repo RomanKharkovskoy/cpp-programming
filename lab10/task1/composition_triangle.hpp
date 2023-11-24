@@ -1,7 +1,7 @@
 #ifndef COMPOSITION_TRIANGLE_H
 #define COMPOSITION_TRIANGLE_H
 
-#include "dot.h"
+#include "dot.hpp"
 
 class CompositionTriangle
 {
